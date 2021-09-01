@@ -12,6 +12,31 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the site in the jekyll/builder container
-      run: echo time
-        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
-        jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
+      run: 	echo "\"${BRANCH}\": {"
+	echo "\"sonic-broadcom.bin\": {"
+	echo "  \"url\": \"$(echo "${ARTF_BRCM}" | sed 's/format=zip/format=file\&subpath=\/target\/sonic-broadcom.bin/')\","
+	echo "  \"build-url\": \"https://dev.azure.com/mssonic/build/_build/results?buildId=${BUILD_BRCM}&view=results\","
+	echo "  \"build\": \"${BUILD_BRCM}\","
+	echo "  \"date\": \"${BUILD_BRCM_TS}\""
+	echo " },"
+	echo "\"sonic-aboot-broadcom.swi\": {"
+	echo "  \"url\": \"$(echo "${ARTF_BRCM}" | sed 's/format=zip/format=file\&subpath=\/target\/sonic-aboot-broadcom.swi/')\","
+	echo "  \"build-url\": \"https://dev.azure.com/mssonic/build/_build/results?buildId=${BUILD_BRCM}&view=results\","
+	echo "  \"build\": \"${BUILD_BRCM}\","
+	echo "  \"date\": \"${BUILD_BRCM_TS}\""
+	echo " },"
+	echo "\"sonic-mellanox.bin\": {"
+	echo "  \"url\": \"$(echo "${ARTF_MLNX}" | sed 's/format=zip/format=file\&subpath=\/target\/sonic-mellanox.bin/')\","
+	echo "  \"build-url\": \"https://dev.azure.com/mssonic/build/_build/results?buildId=${BUILD_MLNX}&view=results\","
+	echo "  \"build\": \"${BUILD_MLNX}\","
+	echo "  \"date\": \"${BUILD_MLNX_TS}\""
+	echo " },"
+	echo "\"sonic-vs.img.gz\": {"
+	echo "  \"url\": \"$(echo "${ARTF_VS}" | sed 's/format=zip/format=file\&subpath=\/target\/sonic-vs.img.gz/')\","
+	echo "  \"build-url\": \"https://dev.azure.com/mssonic/build/_build/results?buildId=${BUILD_VS}&view=results\","
+	echo "  \"build\": \"${BUILD_VS}\","
+	echo "  \"date\": \"${BUILD_VS_TS}\""
+	echo " }" # Final object
+	echo "}"
+done
+echo "}" 
