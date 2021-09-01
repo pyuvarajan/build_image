@@ -12,7 +12,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the site in the jekyll/builder container
-      run: 	echo "\"${BRANCH}\": {"
+      run: 	
+echo "\"${BRANCH}\": {"
 echo "\"sonic-broadcom.bin\": {"
 echo "  \"url\": \"$(echo "${ARTF_BRCM}" | sed 's/format=zip/format=file\&subpath=\/target\/sonic-broadcom.bin/')\","
 echo "  \"build-url\": \"https://dev.azure.com/mssonic/build/_build/results?buildId=${BUILD_BRCM}&view=results\","
