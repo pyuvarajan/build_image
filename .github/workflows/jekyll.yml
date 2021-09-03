@@ -14,5 +14,4 @@ jobs:
     - name: Build the site in the jekyll/builder container
       run: echo time
 cd $(dirname "$0")
-./generate.sh 2>/dev/null | jq . > builds.json.new
-mv builds.json.new builds.json
+./generate.sh 2>/dev/null | jq . > builds.json
