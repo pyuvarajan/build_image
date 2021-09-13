@@ -12,4 +12,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the site in the jekyll/builder container
-      run: echo ./generate.sh 2>/dev/null | jq . > builds.json.new
+      run: echo ./generate.sh
