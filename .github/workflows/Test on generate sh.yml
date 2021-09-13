@@ -2,7 +2,7 @@ name: Test on generate sh
 
 on:
      schedule:
-          - cron:  "2 * * * *"
+     - cron:  "2 * * * *"
   push:
     branches: [ main ]
   pull_request:
