@@ -15,4 +15,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the site in the jekyll/builder container
-      run: echo ./generate.sh 
+      run: echo dotgithub_gen.sh > g1.log
+      shell:bash
+      
