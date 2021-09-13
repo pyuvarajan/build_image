@@ -10,4 +10,3 @@ run: |
   chmod +x "${GITHUB_WORKSPACE}/.github/dotgithub_gen.sh"
   "${GITHUB_WORKSPACE}/.github/dotgithub_gen.sh > {GITHUB_WORKSPACE}/.github/l1.log"
 shell:bash
-      
