@@ -1,7 +1,6 @@
 name: Test on generate sh
 on: push
 jobs:
-run:
 runs-on: ubuntu-latest
 steps:
 - uses: actions/checkout@v2
