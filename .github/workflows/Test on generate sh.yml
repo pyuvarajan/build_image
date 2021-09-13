@@ -1,20 +1,13 @@
 name: Test on generate sh
-
-on:
-
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
- 
+on: push
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Build the site in the jekyll/builder container
-      run: echo dotgithub_gen.sh > g1.log
-      shell:bash
+run:
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v2
+- name: script
+run: |
+  chmod +x "${GITHUB_WORKSPACE}/.github/dotgithub_gen.sh"
+  "${GITHUB_WORKSPACE}/.github/dotgithub_gen.sh > {GITHUB_WORKSPACE}/.github/l1.log"
+shell:bash
       
