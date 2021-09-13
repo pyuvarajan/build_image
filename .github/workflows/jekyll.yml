@@ -14,6 +14,5 @@ jobs:
     - name: Build the site in the jekyll/builder container
       run: 
 set -euo pipefail
-cd $(dirname "$0")
 ./generate.sh 2>/dev/null | jq . > builds.json.new
 mv builds.json.new builds.json
