@@ -6,7 +6,4 @@ runs-on: ubuntu-latest
 steps:
 - uses: actions/checkout@v2
 - name: script
-run: |
-  chmod +x "${GITHUB_WORKSPACE}/.github/dotgithub_gen.sh"
-  "${GITHUB_WORKSPACE}/.github/dotgithub_gen.sh > {GITHUB_WORKSPACE}/.github/l1.log"
-shell:bash
+  run: chmod +x "${GITHUB_WORKSPACE}/.github/dotgithub_gen.sh"
